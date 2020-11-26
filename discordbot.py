@@ -24,7 +24,7 @@ async def test(ctx):
 
 @bot.command(aliases=["connect","summon"]) #connectやsummonでも呼び出せる
 async def join(ctx):
-    """Botをボイスチャンネルに入室させます。"""
+    """ボイスチャンネルへの入室"""
     voice_state = ctx.author.voice
 
     if (not voice_state) or (not voice_state.channel):
@@ -39,7 +39,7 @@ async def join(ctx):
 
 @bot.command(aliases=["disconnect","bye"])
 async def leave(ctx):
-    """Botをボイスチャンネルから切断します。"""
+    """ボイスチャンネルからの切断。"""
     voice_client = ctx.message.guild.voice_client
 
     if not voice_client:
@@ -52,7 +52,7 @@ async def leave(ctx):
 
 @bot.command()
 async def play(ctx):
-    """指定された音声ファイルを流します。"""
+    """音声ファイルの再生"""
     voice_client = ctx.message.guild.voice_client
 
     if not voice_client:
